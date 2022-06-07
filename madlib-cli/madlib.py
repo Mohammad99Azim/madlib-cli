@@ -63,8 +63,13 @@ def get_inputs():
     return listWords
 
 
-def all_game_functions_play(file_directory):
+def write_to_file(text):
+    with open('../assets/Output_text.txt', 'w') as f:
+        myText = f.write(text)
+    return text
 
+
+def all_game_functions_play(file_directory):
     print(welcoming())
 
     the_inputs = get_inputs()
@@ -73,8 +78,10 @@ def all_game_functions_play(file_directory):
 
     file_string, tup = parse_template(the_Text)
 
-    print(merge(file_string, the_inputs))
+    final_text = merge(file_string, the_inputs)
+
+    print(write_to_file(final_text))
 
 
 if __name__ == "__main__":
-    all_game_functions_play('make_me_a_video_game_template.txt')
+    all_game_functions_play('../assets/make_me_a_video_game_template.txt')
