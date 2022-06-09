@@ -1,4 +1,4 @@
-import re
+import re ,time
 
 
 def read_template(path):
@@ -64,7 +64,8 @@ def get_inputs():
 
 
 def write_to_file(text):
-    with open('../assets/Output_text.txt', 'w') as f:
+    moment = time.strftime("%Y-%b-%d__%H_%M_%S", time.localtime())
+    with open(f'../assets/Output_{moment}_text.txt', 'w') as f:
         myText = f.write(text)
     return text
 
